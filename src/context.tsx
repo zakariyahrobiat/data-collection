@@ -5,7 +5,7 @@ import {
 } from "firebase/auth";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { db } from "./firebaseConfig";
-// import { app } from "./firebaseConfig";
+import { app } from "./firebaseConfig";
 import { auth } from "./firebaseConfig";
 
 type BoxProps = {
@@ -206,7 +206,9 @@ const Context = (props: BoxProps) => {
         detail,
         start,
         end,
-        count, increase, decrease
+        count,
+        increase,
+        decrease,
       }}
     >
       {props.children}
