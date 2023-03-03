@@ -8,7 +8,7 @@ const Home = () => {
     <div className="pt-20 px-10 md:w-9/12 lg:w-1/2">
       <p className="text-2xl font-bold">FORM</p>
       <form action="">
-        <div className="mb-5 relative md:mb-10">
+        <div className="mb-5 relative md:mb-10 md:mt-5">
           <input
             type="text"
             name="name"
@@ -125,7 +125,12 @@ const Home = () => {
           </label>
         </div>
         <Link to="/dashboard">
-          <button onClick={() => collectForm()}>Submit</button>
+          <button
+            onClick={() => collectForm()}
+            className="bg-black text-white text-lg font-bold py-2 px-4 rounded-b-lg"
+          >
+            Submit
+          </button>
         </Link>
       </form>
     </div>

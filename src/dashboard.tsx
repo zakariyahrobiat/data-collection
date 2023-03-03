@@ -12,7 +12,7 @@ const Dashboard = () => {
   console.log(collect);
 
   return (
-    <div className="py-5">
+    <div className="py-5 md:w-9/12 lg:w-1/2">
       {/* <div className="flex justify-between gap-5 items-center "> */}
       <div className="text-left mb-5">
         <Link
@@ -28,7 +28,7 @@ const Dashboard = () => {
       </div>
       {/* </div> */}
       <div className="py-5">
-        {collect.slice(start, end)?.map((data: any) => {
+        {collect?.map((data: any) => {
           const { name, email, id, number, gender, genotype, blood } =
             data.data;
           return (
@@ -45,14 +45,15 @@ const Dashboard = () => {
           );
         })}
       </div>
-      {/* <div className="">
+      {/* <div className="flex justify-between">
         <p>
           showing {end} of {collect.length}
         </p>
-
-        <button onClick={decrease}>DEC</button>
-        <button onClick={increase}>ADD</button>
-      </div> */}
+        <div>
+          <button onClick={decrease}>DEC</button>
+          <button onClick={increase}>ADD</button>
+        </div> */}
+      {/* </div> */}
     </div>
   );
 };
