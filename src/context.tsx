@@ -145,21 +145,21 @@ const Context = (props: BoxProps) => {
     } catch (e) {
       console.error("Error adding document: ", e);
     }
+    useEffect(() => {
+      const fetchPost = async () => {
+        await getDocs(collection(db, "collect")).then((querySnapshot: any) => {
+          const newData = querySnapshot.docs.map((doc: any) => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
+          setCollect(newData);
+          console.log(collect, newData);
+        });
+      };
+      fetchPost();
+    }, [collect]);
   };
 
-  useEffect(() => {
-    const fetchPost = async () => {
-      await getDocs(collection(db, "collect")).then((querySnapshot: any) => {
-        const newData = querySnapshot.docs.map((doc: any) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        setCollect(newData);
-        console.log(collect, newData);
-      });
-    };
-    fetchPost();
-  }, [collect]);
   const getPerson = (id: number) => {
     const person = collect.find((item: any) => item.id === id);
 
